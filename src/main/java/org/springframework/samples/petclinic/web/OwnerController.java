@@ -18,6 +18,7 @@ package org.springframework.samples.petclinic.web;
 import java.util.Collection;
 import java.util.Map;
 
+import javax.persistence.Temporal;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class OwnerController {
 
-    private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
+    public static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
     private final ClinicService clinicService;
 
 
@@ -78,7 +79,6 @@ public class OwnerController {
         model.put("owner", new Owner());
         return "owners/findOwners";
     }
-
     @RequestMapping(value = "/owners", method = RequestMethod.GET)
     public String processFindForm(Owner owner, BindingResult result, Map<String, Object> model) {
 
